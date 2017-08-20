@@ -1,0 +1,61 @@
+<!-- Validation failure messages -->
+<% if @route.errors.any? %>
+  <% @route.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Route</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_route" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+       
+        <input type="hidden" name="user.id" value="<%= current_user.id %>">
+      </div>
+
+      <!-- Label and input for Name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @route.name %>">
+      </div>
+      
+      <!-- Label and input for Origin -->
+      <div class="form-group">
+        <label for="origin" class="control-label">
+          Origin
+        </label>
+
+        <input type="text" id="origin" name="origin" placeholder="Origin" class="form-control" value="<%= @route.origin %>">
+      </div>
+
+      <!-- Label and input for Destination -->
+      <div class="form-group">
+        <label for="destination" class="control-label">
+          Destination
+        </label>
+
+        <input type="text" id="destination" name="destination" placeholder="Destination" class="form-control" value="<%= @route.destination %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Route
+      </button>
+      or
+      <a href="/routes">Cancel</a>
+    </form>
+  </div>
+</div>
