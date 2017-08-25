@@ -1,14 +1,14 @@
 class BookmarksController < ApplicationController
   
-  def favorites
-    @bookmarks = current_user.bookmarks
-
-    render("bookmarks/favorites.html.erb")
+  def favorites            
+    @bookmarks = current_user.bookmarks            
+  
+    render("bookmarks/favorites.html.erb")            
   end
   
   def index
     @bookmarks = Bookmark.all
-
+    
     render("bookmarks/index.html.erb")
   end
 

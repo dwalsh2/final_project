@@ -3,7 +3,6 @@
 # Table name: businesses
 #
 #  id              :integer          not null, primary key
-#  waypoint_id     :integer
 #  name            :string
 #  image_url       :string
 #  url             :string

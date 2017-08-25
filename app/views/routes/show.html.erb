@@ -14,7 +14,7 @@
       <dt>Origin</dt>
       <dd><%= @route.origin %></dd>
 
-      <dt>Destination</dt></dt>
+      <dt>Destination</dt>
       <dd><%= @route.destination %></dd>
 
       <dt>Map</dt>
@@ -26,30 +26,30 @@
       
       <dt>Bookmarks</dt>
       <dd>
-        <% @bookmarks.each do | bookmark | %>
-          <% if bookmark.waypoint.route_id == @route.id %>
-            <ul>
-              <a href="/businesses/<%= bookmark.business_id %>"><%= bookmark.business.name %></a>
-            </ul>  
-          <% end %>
-        <% end %>  
+        <% @bookmarks.each do | bookmark | %>            
+          <% if bookmark.waypoint.route_id == @route.id %>            
+            <ul>            
+              <a href="/businesses/<%= bookmark.business_id %>"><%= bookmark.business.name %></a>            
+            </ul>              
+          <% end %>            
+        <% end %>
       </dd>
       
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <% if current_user.id != @route.user_id %>
-        <a href="/routes" class="btn btn-primary">
-          Back
-        </a>
-      <% else %>  
-        <a href="/routes/<%= @route.id %>/edit" class="btn btn-warning">
-          Edit
-        </a>
-        <a href="/delete_route/<%= @route.id %>" class="btn btn-danger" rel="nofollow">
-          Delete
-        </a>
-      <% end %>  
+      <% if current_user.id != @route.user_id %>            
+        <a href="/routes" class="btn btn-primary">            
+          Back            
+        </a>            
+      <% else %>              
+        <a href="/routes/<%= @route.id %>/edit" class="btn btn-warning">            
+          Edit            
+        </a>            
+        <a href="/delete_route/<%= @route.id %>" class="btn btn-danger" rel="nofollow">            
+          Delete            
+        </a>            
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,13 +1,15 @@
 class RoutesController < ApplicationController
   
-  def favorites
-    @routes = current_user.routes
+  def favorites            
+    @routes = current_user.routes            
 
-    render("routes/favorites.html.erb")
+    render("routes/favorites.html.erb")            
   end
   
   def index
     @routes = Route.all
+    
+    @bookmarks = Bookmark.all
     
     # parsed_map = JSON.parse(open(@route.parsed_maps_data).read)
 
@@ -16,8 +18,6 @@ class RoutesController < ApplicationController
 
   def show
     @route = Route.find(params[:id])
-    
-    @bookmarks = Bookmark.all
     
     # parsed_map = JSON.parse(open(@route.parsed_maps_data).read)
 
@@ -49,7 +49,7 @@ class RoutesController < ApplicationController
     # parsed_map = JSON.parse(open(@route.parsed_maps_data).read)
     
     # @route.steps = @route.parsed_map["routes"][0]["legs"][0]["steps"].count
-    @route.steps = 5
+    # @route.steps = 5
     
     # @routes.steps.each do |step|
     

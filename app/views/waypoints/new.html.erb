@@ -9,7 +9,9 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Waypoint</h3>
+  <div class="col-md-8 col-md-offset-2">
+    <h3>Add Waypoint</h3>
+  </div>  
 </div>
 
 <div class="row">
@@ -33,7 +35,7 @@
           Latitude
         </label>
 
-        <input type="text" id="latitude" name="latitude" placeholder="<%= @waypoint.latitude %>" class="form-control" value="<%= @waypoint.latitude %>">
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="<%= @waypoint.latitude %>">
       </div>
 
       <!-- Label and input for longitude -->
@@ -42,7 +44,7 @@
           Longitude
         </label>
 
-        <input type="text" id="longitude" name="longitude" placeholder="<%= @waypoint.latitude %>" class="form-control" value="<%= @waypoint.longitude %>">
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="<%= @waypoint.longitude %>">
       </div>
 
       <button class="btn btn-success">
