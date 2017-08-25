@@ -8,6 +8,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  search_topic :string
+#  user_id      :integer
 #
 
 class Bookmark < ApplicationRecord
@@ -15,5 +16,13 @@ class Bookmark < ApplicationRecord
     belongs_to :business
     
     belongs_to :waypoint 
+    
+    belongs_to :user 
+    
+    validates :waypoint_id, :presence => true
+    
+    validates :business_id, :presence => true
+    
+    validates :search_topic, :presence => true
      
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818205035) do
+ActiveRecord::Schema.define(version: 20170825034019) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170818205035) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "search_topic"
+    t.integer "user_id"
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170818205035) do
     t.string "yelp_api_return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "yelp"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -72,6 +74,8 @@ ActiveRecord::Schema.define(version: 20170818205035) do
     t.string "destination"
     t.string "map"
     t.string "name"
+    t.string "parsed_maps_data"
+    t.string "steps"
   end
 
   create_table "users", force: :cascade do |t|

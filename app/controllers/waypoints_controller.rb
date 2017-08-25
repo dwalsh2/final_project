@@ -20,10 +20,16 @@ class WaypointsController < ApplicationController
   def create
     @waypoint = Waypoint.new
 
-    @waypoint.latitude = params[:latitude]
-    @waypoint.longitude = params[:longitude]
     @waypoint.route_id = params[:route_id]
-
+    
+    # parsed_map = JSON.parse(open(@waypoint.route.parsed_maps_data).read)
+    
+    # @waypoint.latitude = parsed_map["routes"][0]["legs"][0]["steps"][0]["end_location"]["lat"]
+    # @waypoint.longitude = parsed_map["routes"][0]["legs"][0]["steps"][0]["end_location"]["lng"]
+    
+    @waypoint.latitude = 41.7886
+    @waypoint.longitude = 87.5987
+    
     save_status = @waypoint.save
 
     if save_status == true

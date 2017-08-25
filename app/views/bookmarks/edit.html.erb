@@ -18,13 +18,16 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        
+        <input type="hidden" name="user_id" value="<%= current_user %>">
+      </div>
+      
       <!-- Label and input for waypoint_id -->
       <div class="form-group">
-        <label for="waypoint_id" class="control-label">
-          Waypoint
-        </label>
-
-        <input type="text" id="waypoint_id" name="waypoint_id" placeholder="Waypoint" class="form-control" value="<%= @bookmark.waypoint_id %>">
+        
+        <input type="hidden" name="waypoint_id" value="<%= @bookmark.waypoint_id %>">
       </div>
 
       <!-- Label and input for business_id -->
@@ -33,7 +36,7 @@
           Business
         </label>
 
-        <input type="text" id="business_id" name="business_id" placeholder="Business" class="form-control" value="<%= @bookmark.business_id %>">
+        <%= select_tag("business_id", options_from_collection_for_select(Business.all, :id, :name, @bookmark.business_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for search_topic -->

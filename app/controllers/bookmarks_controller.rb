@@ -1,4 +1,11 @@
 class BookmarksController < ApplicationController
+  
+  def favorites
+    @bookmarks = current_user.bookmarks
+
+    render("bookmarks/favorites.html.erb")
+  end
+  
   def index
     @bookmarks = Bookmark.all
 
@@ -19,7 +26,8 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new
-
+    
+    @bookmark.user = current_user
     @bookmark.waypoint_id = params[:waypoint_id]
     @bookmark.business_id = params[:business_id]
     @bookmark.search_topic = params[:search_topic]

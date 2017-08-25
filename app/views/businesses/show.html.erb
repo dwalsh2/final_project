@@ -5,17 +5,17 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Waypoint</dt>
-      <dd><%= @business.waypoint_id %></dd>
+      <dt>Yelp</dt>
+      <dd><%= @yelp %></dd>
 
       <dt>Name</dt>
       <dd><%= @business.name %></dd>
 
       <dt>Image url</dt>
-      <dd><%= @business.image_url %></dd>
+      <dd><img src="<%= @business.image_url %>"></dd>
 
       <dt>Url</dt>
-      <dd><%= @business.url %></dd>
+      <dd><a href="<%= @business.url %>"><%= @business.name %> website</a></dd>
 
       <dt>Phone</dt>
       <dd><%= @business.phone %></dd>

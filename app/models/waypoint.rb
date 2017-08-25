@@ -17,5 +17,11 @@ class Waypoint < ApplicationRecord
     has_many :bookmarks, :dependent => :destroy 
     
     has_many :businesses, :through => :bookmarks, :source => :business 
+    
+    validates :latitude, :presence => true
+    
+    validates :longitude, :presence => true
+    
+    validates :route_id, :presence => true
 
 end

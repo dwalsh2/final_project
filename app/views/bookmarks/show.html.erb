@@ -5,11 +5,14 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Waypoint</dt>
-      <dd><%= @bookmark.waypoint_id %></dd>
+      <dt>Search topic</dt>
+      <dd><%= @bookmark.search_topic %></dd>
+      
+      <dt>Route</dt>
+      <dd><%= @bookmark.waypoint.route.name %></dd>
 
       <dt>Business</dt>
-      <dd><%= @bookmark.business_id %></dd>
+      <dd><%= @bookmark.business.name %></dd>
 
     </dl>
 

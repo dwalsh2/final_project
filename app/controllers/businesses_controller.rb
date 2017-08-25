@@ -20,18 +20,28 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new
 
-    @yelp = "https://www.yelp.com/search?find_desc=" + @business.bookmark.search_topic + "&find_loc=" + @business.waypoint.latitude + ", " + @business.waypoint.longitude + "&start=0&sortby=rating"
+    @business.yelp = "https://www.yelp.com/search?find_desc=restaurants&cll=33.8121,117.9190&start=0&sortby=rating"
+
+    @business.name = params[:name]
+    @business.image_url = params[:image_url]
+    @business.url = params[:url]
+    @business.phone = params[:phone]
+    @business.rating = params[:rating]
+    @business.location = params[:location]
+    @business.yelp_api_return = params[:yelp_api_return]
+
+
+    # @business.yelp = "https://www.yelp.com/search?find_desc=" + @business.bookmark.search_topic + "&cll=" + @business.waypoint.latitude + ", " + @business.waypoint.longitude + "&start=0&sortby=rating"
     
-    @parsed_yelp_data = JSON.parse(open(@yelp).read)
+    # @parsed_yelp_data = JSON.parse(open(@business.yelp).read)
     
-    @business.waypoint_id = params[:waypoint_id]
-    @business.name = @parsed_yelp_data["businesses"]["name"]]
-    @business.image_url = @parsed_yelp_data["businesses"]["image_url"]]
-    @business.url = @parsed_yelp_data["businesses"]["url"]]
-    @business.phone = @parsed_yelp_data["businesses"]["phone"]]
-    @business.rating = @parsed_yelp_data["businesses"]["rating"]]
-    @business.location = @parsed_yelp_data["businesses"]["location"]["city"]]
-    @business.yelp_api_return = @parsed_yelp_data
+    # @business.name = @parsed_yelp_data["businesses"]["name"]
+    # @business.image_url = @parsed_yelp_data["businesses"]["image_url"]
+    # @business.url = @parsed_yelp_data["businesses"]["url"]
+    # @business.phone = @parsed_yelp_data["businesses"]["phone"]
+    # @business.rating = @parsed_yelp_data["businesses"]["rating"]
+    # @business.location = @parsed_yelp_data["businesses"]["location"]["city"]
+    # @business.yelp_api_return = @parsed_yelp_data
     
     save_status = @business.save
 

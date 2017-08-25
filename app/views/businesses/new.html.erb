@@ -18,15 +18,6 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for waypoint_id -->
-      <div class="form-group">
-        <label for="waypoint_id" class="control-label">
-          Waypoint
-        </label>
-
-        <input type="text" id="waypoint_id" name="waypoint_id" placeholder="Waypoint" class="form-control" value="<%= @business.waypoint_id %>">
-      </div>
-
       <!-- Label and input for name -->
       <div class="form-group">
         <label for="name" class="control-label">

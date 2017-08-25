@@ -13,18 +13,27 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
     <form action="/create_waypoint" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for route_id -->
+      <div class="form-group">
+        <label for="route_id" class="control-label">
+          Route
+        </label>
+
+        <%= select_tag("route_id", options_from_collection_for_select(Route.all, :id, :name, @waypoint.route_id), :class => "form-control") %>
+      </div>
+      
       <!-- Label and input for latitude -->
       <div class="form-group">
         <label for="latitude" class="control-label">
           Latitude
         </label>
 
-        <input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="<%= @waypoint.latitude %>">
+        <input type="text" id="latitude" name="latitude" placeholder="<%= @waypoint.latitude %>" class="form-control" value="<%= @waypoint.latitude %>">
       </div>
 
       <!-- Label and input for longitude -->
@@ -33,16 +42,7 @@
           Longitude
         </label>
 
-        <input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="<%= @waypoint.longitude %>">
-      </div>
-
-      <!-- Label and input for route_id -->
-      <div class="form-group">
-        <label for="route_id" class="control-label">
-          Route
-        </label>
-
-        <input type="text" id="route_id" name="route_id" placeholder="Route" class="form-control" value="<%= @waypoint.route_id %>">
+        <input type="text" id="longitude" name="longitude" placeholder="<%= @waypoint.latitude %>" class="form-control" value="<%= @waypoint.longitude %>">
       </div>
 
       <button class="btn btn-success">

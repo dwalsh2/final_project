@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   
   devise_for :users
   
+  get "/my_bookmarks/:id", :controller => "bookmarks", :action => "favorites"
+  
+  get "/my_routes/:id", :controller => "routes", :action => "favorites"
+  
   # Routes for the Bookmark resource:
   # CREATE
   get "/bookmarks/new", :controller => "bookmarks", :action => "new"

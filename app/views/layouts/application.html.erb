@@ -43,9 +43,10 @@
           <% else %>
             <ul class="nav navbar-nav">
               <li><a href="/routes">All Routes</a></li>
-              <li><a href="/routes/<%= current_user.id %>">My Routes</a></li>
-              <li><a href="/bookmarks/<%= current_user.id %>">My Bookmarks</a></li>
-              <li><a href="/businesses/<%= current_user.id %>">My Businesses</a></li>
+              <li><a href="/my_routes/<%= current_user.id %>">My Routes</a></li>
+              <li><a href="/my_bookmarks/<%= current_user.id %>">My Bookmarks</a></li>
+              <li><a href="/bookmarks/new">New Bookmark</a></li>
+              <li><a href="/waypoints">Waypoints</a></li>
               <li><a href="/users">Users</a></li>
               <li><a href="/rails/info">Sitemap</a></li>
             </ul>

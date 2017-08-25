@@ -13,6 +13,7 @@
 #  yelp_api_return :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  yelp            :string
 #
 
 class Business < ApplicationRecord
@@ -20,5 +21,7 @@ class Business < ApplicationRecord
     has_many :bookmarks, :dependent => :destroy 
     
     has_many :waypoints, :through => :bookmarks, :source => :waypoint 
+    
+    validates :name, :presence => true
     
 end
