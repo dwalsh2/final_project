@@ -22,7 +22,7 @@
 
       <% @routes.each do |route| %>
         <tr>
-          <td><%= route.user.username %></td>
+          <td><a href="/users/<%= route.user.id %>"><%= route.user.username %></a></td>
           <td><a href="/routes/<%= route.id %>"><%= route.name %></a></td>
           <td><%= route.origin %></td>
           <td><%= route.destination %></td>

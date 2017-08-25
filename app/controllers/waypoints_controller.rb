@@ -27,8 +27,8 @@ class WaypointsController < ApplicationController
     # @waypoint.latitude = parsed_map["routes"][0]["legs"][0]["steps"][0]["end_location"]["lat"]
     # @waypoint.longitude = parsed_map["routes"][0]["legs"][0]["steps"][0]["end_location"]["lng"]
     
-    @waypoint.latitude = 41.7886
-    @waypoint.longitude = 87.5987
+    @waypoint.latitude = params[:latitude]
+    @waypoint.longitude = params[:longitude]
     
     save_status = @waypoint.save
 
